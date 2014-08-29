@@ -172,4 +172,17 @@ abstract class VerySeriousCompilerHelper {
   }
 }
 
+object Test {
+  def test: String = macro testImpl
 
+  // the macro implementation
+  def testImpl(c: Context): c.Expr[String] = {
+    import c.universe._
+
+    try {
+      reify(23 + )
+      } catch {
+        case e: Throwable => println(e.getMessage); reify("toto")
+      }
+  }
+}
